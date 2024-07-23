@@ -25,7 +25,7 @@ f107_tbl <- read_fwf(
   relocate(date_time, .before = 1) %>%
   select(!c(date, time))
 
-f107_summary_tbl <- f10_7_tbl %>%
+f107_summary_tbl <- f107_tbl %>%
   mutate(dt = date(date_time)) %>%
   group_by(dt) %>%
   summarize(adjflux = max(adjflux)) %>%
